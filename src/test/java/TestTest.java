@@ -8,8 +8,8 @@ import java.util.Arrays;
 public class TestTest {
     @Test
     public void identicalDistributionsShouldHaveTheSame() {
-        AbstractDistributionAssert foo = new DistributionAssert(Arrays.asList(1, 1, 1));
+        AbstractDistributionAssert foo = new DistributionAssert(Arrays.asList(1, 1, 1, 1, 1, 1, 1, 1, 1, 1));
 
-        foo.comesFromSameDistributionAs(Arrays.asList(1, 1, 1), 0.01);
+        foo.comesFromSameDistributionAs(Arrays.asList(1, 1, 7, 9), 0.01);
     }
 }

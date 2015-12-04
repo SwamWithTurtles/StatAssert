@@ -24,7 +24,7 @@ public class DistributionAssert extends AbstractDistributionAssert {
         TwoSameKSTest test = new TwoSameKSTest(actual, expected);
         double testStatistic = test.calculateTestStatistic();
 
-        if(testStatistic > pValue) {
+        if(testStatistic < (1 - pValue)) {
             throw new AssertionError(String.format("Two distributions had different distributions with likelihood %f. p-value: %f", pValue, testStatistic));
         }
 
