@@ -1,6 +1,6 @@
-package StatisticalTests;
+package stats;
 
-import org.apache.commons.math3.distribution.KolmogorovSmirnovDistribution;
+import utils.StatisticalUtils;
 import org.apache.commons.math3.stat.inference.KolmogorovSmirnovTest;
 
 import java.util.*;

@@ -1,4 +1,4 @@
-package StatisticalTests;
+package utils;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -14,7 +14,7 @@ public class StatisticalUtils {
             public Double apply(final Double aDouble) {
                 List<Integer> filteredActual = Lists.newArrayList(Iterables.filter(actual, new Predicate<Integer>() {
                     public boolean apply(Integer integer) {
-                        return integer < aDouble;
+                        return integer <= aDouble;
                     }
                 }));
 

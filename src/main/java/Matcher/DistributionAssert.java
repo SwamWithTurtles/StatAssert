@@ -1,6 +1,6 @@
 package Matcher;
 
-import StatisticalTests.TwoSameKSTest;
+import stats.TwoSameKSTest;
 
 import java.util.List;
 
