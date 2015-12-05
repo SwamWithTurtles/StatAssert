@@ -1,7 +1,6 @@
 import Matcher.AbstractDistributionAssert;
 import Matcher.DistributionAssert;
 import Matcher.StatAssertEntry;
-import Matcher.StatAssertEntry.*;
 import org.junit.Test;
 
 import static Matcher.StatAssertEntry.assertThat;
