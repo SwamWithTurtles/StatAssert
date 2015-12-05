@@ -4,10 +4,19 @@ import Matcher.StatAssertEntry;
 import Matcher.StatAssertEntry.*;
 import org.junit.Test;
 
-import static Matcher.StatAssertEntry.*;
+import static Matcher.StatAssertEntry.assertThat;
+import static junit.framework.Assert.assertTrue;
 
 
 public class KolmogorovSmirnovIntegrationTest {
+    @Test
+    public void StatAssertEntryCanBeInstantiated() {
+        //Mainly here to ensure 100% coverage
+        StatAssertEntry entry = new StatAssertEntry();
+
+        assertTrue(entry instanceof StatAssertEntry);
+    }
+
     @Test
     public void identicalDistributionsShouldHaveTheSame() {
         assertThat(new int[]{1, 1, 1, 1}).comesFromSameDistributionAs(new int[]{1, 1, 1, 1}, 0.01);

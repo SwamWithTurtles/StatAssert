@@ -7,18 +7,25 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.function.Function;
 
-public abstract class StatisticalUtils {
+public class DistributionFormatter {
 
-    public static Function<Double, Double> convertToCdf(final List<Integer> actual) {
+    private final List<Integer> dataPoints;
+
+    public DistributionFormatter(List<Integer> dataPoints) {
+        this.dataPoints = dataPoints;
+    }
+
+
+    public Function<Double, Double> convertToCdf() {
         return new Function<Double, Double>() {
             public Double apply(final Double aDouble) {
-                List<Integer> filteredActual = Lists.newArrayList(Iterables.filter(actual, new Predicate<Integer>() {
+                List<Integer> filteredActual = Lists.newArrayList(Iterables.filter(dataPoints, new Predicate<Integer>() {
                     public boolean apply(Integer integer) {
                         return integer <= aDouble;
                     }
                 }));
 
-                return (double) filteredActual.size() / actual.size();
+                return (double) filteredActual.size() / dataPoints.size();
             };
         };
 

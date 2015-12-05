@@ -7,11 +7,11 @@ import java.util.function.Function;
 
 import static org.junit.Assert.assertTrue;
 
-public class StatisticalUtilsTest {
+public class DistributionFormatterTest {
 
     @Test
     public void cdfWorksForSimpleExample() {
-        Function<Double, Double> sampleCdf = StatisticalUtils.convertToCdf(Arrays.asList(1, 2, 3, 4, 5));
+        Function<Double, Double> sampleCdf = new DistributionFormatter(Arrays.asList(1, 2, 3, 4, 5)).convertToCdf();
 
         assertTrue(sampleCdf.apply(0.5d).equals(0d));
         assertTrue(sampleCdf.apply(1.5d).equals(0.2d));
@@ -24,7 +24,7 @@ public class StatisticalUtilsTest {
 
     @Test
     public void cdfWorksOutsideSampleSpace() {
-        Function<Double, Double> sampleCdf = StatisticalUtils.convertToCdf(Arrays.asList(1, 2, 3, 4, 5));
+        Function<Double, Double> sampleCdf = new DistributionFormatter(Arrays.asList(1, 2, 3, 4, 5)).convertToCdf();
 
         assertTrue(sampleCdf.apply(0d).equals(0d));
         assertTrue(sampleCdf.apply(-2d).equals(0d));
@@ -37,7 +37,7 @@ public class StatisticalUtilsTest {
 
     @Test
     public void cdfWorksWhenValueIsRepeated() {
-        Function<Double, Double> sampleCdf = StatisticalUtils.convertToCdf(Arrays.asList(1, 1, 2, 3));
+        Function<Double, Double> sampleCdf = new DistributionFormatter(Arrays.asList(1, 1, 2, 3)).convertToCdf();
 
         assertTrue(sampleCdf.apply(0.5d).equals(0d));
         assertTrue(sampleCdf.apply(1.5d).equals(0.5d));
@@ -46,7 +46,7 @@ public class StatisticalUtilsTest {
 
     @Test
     public void cdfWorksWhenNegativeNumbersAreInSample() {
-        Function<Double, Double> sampleCdf = StatisticalUtils.convertToCdf(Arrays.asList(-1, 1));
+        Function<Double, Double> sampleCdf = new DistributionFormatter(Arrays.asList(-1, 1)).convertToCdf();
 
         assertTrue(sampleCdf.apply(-2d).equals(0d));
         assertTrue(sampleCdf.apply(0d).equals(0.5d));

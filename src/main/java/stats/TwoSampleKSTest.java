@@ -1,6 +1,6 @@
 package stats;
 
-import utils.StatisticalUtils;
+import utils.DistributionFormatter;
 import org.apache.commons.math3.stat.inference.KolmogorovSmirnovTest;
 
 import java.util.*;
@@ -21,8 +21,8 @@ public class TwoSampleKSTest {
 
     public double calculateTestStatistic() {
 
-        Function<Double, Double> actualCdf = StatisticalUtils.convertToCdf(actual);
-        Function<Double, Double> expectedCdf = StatisticalUtils.convertToCdf(expected);
+        Function<Double, Double> actualCdf = new DistributionFormatter(actual).convertToCdf();
+        Function<Double, Double> expectedCdf = new DistributionFormatter(expected).convertToCdf();
 
         Integer min = Collections.min(union(actual, expected));
         Integer max = Collections.max(union(actual, expected));
