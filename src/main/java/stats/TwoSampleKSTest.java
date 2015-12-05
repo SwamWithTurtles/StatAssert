@@ -14,12 +14,13 @@ public class TwoSampleKSTest {
     private final List<Integer> actual;
     private final List<Integer> expected;
 
-    public TwoSampleKSTest(List<Integer> actual, List<Integer> expected) {
-        this.actual = actual;
-        this.expected = expected;
+    public TwoSampleKSTest(int[] actual, int[] expected) {
+        this.actual = asList(actual);
+        this.expected = asList(expected);
     }
 
     public double calculateTestStatistic() {
+
         Function<Double, Double> actualCdf = StatisticalUtils.convertToCdf(actual);
         Function<Double, Double> expectedCdf = StatisticalUtils.convertToCdf(expected);
 
@@ -36,6 +37,15 @@ public class TwoSampleKSTest {
         }
 
         return new KolmogorovSmirnovTest().approximateP(supCdfDiff, actual.size(), expected.size());
+    }
+
+    private List<Integer> asList(int[] arr) {
+        List<Integer> intList = new ArrayList<Integer>();
+        for (int index = 0; index < arr.length; index++)
+        {
+            intList.add(arr[index]);
+        }
+        return intList;
     }
 
     private List<Integer> union(List<Integer> list1, List<Integer> list2) {

@@ -11,8 +11,8 @@ public class TwoSampleKSTestTest {
 
     @Test
     public void twoSampleKSTestWithIdenticalDistribution() {
-        List<Integer> array1 = Arrays.asList(1, 2, 3, 4);
-        List<Integer> array2 = Arrays.asList(1, 2, 3, 4);
+        int[] array1 = new int[]{1, 2, 3, 4};
+        int[] array2 = new int[]{1, 2, 3, 4};
 
         TwoSampleKSTest test = new TwoSampleKSTest(array1, array2);
 
@@ -24,8 +24,8 @@ public class TwoSampleKSTestTest {
 
     @Test
     public void twoSampleKSTestWithSmallSampleSize() {
-        List<Integer> array1 = Arrays.asList(1, 2, 3, 4);
-        List<Integer> array2 = Arrays.asList(-1, 2, 3, 4);
+        int[] array1 = new int[]{1, 2, 3, 4};
+        int[] array2 = new int[]{-1, 2, 3, 4};
 
         TwoSampleKSTest test = new TwoSampleKSTest(array1, array2);
 
@@ -34,8 +34,8 @@ public class TwoSampleKSTestTest {
 
     @Test
     public void twoSampleKSTestWithWildlyDeviatingSamples() {
-        List<Integer> array1 = Arrays.asList(1, 2, 3, 4);
-        List<Integer> array2 = Arrays.asList(3, 5, 8, 13, 21);
+        int[] array1 = new int[]{1, 2, 3, 4};
+        int[] array2 = new int[]{3, 5, 8, 13, 21};
 
         TwoSampleKSTest test = new TwoSampleKSTest(array1, array2);
 
@@ -44,8 +44,8 @@ public class TwoSampleKSTestTest {
 
     @Test
     public void twoSampleKSTestWithLargeArrays() {
-        List<Integer> array1 = Arrays.asList(1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 7, 8, 8, 8, 8, 9, 9, 9, 9, 9);
-        List<Integer> array2 = Arrays.asList(1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9);
+        int[] array1 = new int[]{1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 7, 8, 8, 8, 8, 9, 9, 9, 9, 9};
+        int[] array2 = new int[]{1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9};
 
         TwoSampleKSTest test = new TwoSampleKSTest(array1, array2);
 
