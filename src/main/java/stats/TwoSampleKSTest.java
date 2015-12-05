@@ -7,14 +7,14 @@ import java.util.*;
 import java.util.function.Function;
 
 
-public class TwoSameKSTest {
+public class TwoSampleKSTest {
 
-    private static final Long GRANULARITY = 1000l;
+    private static final Integer GRANULARITY = 1000;
 
     private final List<Integer> actual;
     private final List<Integer> expected;
 
-    public TwoSameKSTest(List<Integer> actual, List<Integer> expected) {
+    public TwoSampleKSTest(List<Integer> actual, List<Integer> expected) {
         this.actual = actual;
         this.expected = expected;
     }
@@ -32,13 +32,13 @@ public class TwoSameKSTest {
             supCdfDiff = Math.max(supCdfDiff, Math.abs(actualCdf.apply(i) - expectedCdf.apply(i)));
         }
         if(supCdfDiff == 0) {
-            return 1;
+            return 1d;
         }
 
         return new KolmogorovSmirnovTest().approximateP(supCdfDiff, actual.size(), expected.size());
     }
 
-    public List<Integer> union(List<Integer> list1, List<Integer> list2) {
+    private List<Integer> union(List<Integer> list1, List<Integer> list2) {
         Set<Integer> set = new HashSet<Integer>();
 
         set.addAll(list1);

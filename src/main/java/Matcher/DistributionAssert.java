@@ -1,6 +1,6 @@
 package Matcher;
 
-import stats.TwoSameKSTest;
+import stats.TwoSampleKSTest;
 
 import java.util.List;
 
@@ -20,11 +20,22 @@ public class DistributionAssert extends AbstractDistributionAssert {
      * @return {@code this} assertion object
      */
     public DistributionAssert comesFromSameDistributionAs(List<Integer> expected, double pValue) {
-
-        TwoSameKSTest test = new TwoSameKSTest(actual, expected);
+        TwoSampleKSTest test = new TwoSampleKSTest(actual, expected);
         double testStatistic = test.calculateTestStatistic();
 
         if(testStatistic < (1 - pValue)) {
+            throw new AssertionError(String.format("Two distributions had different distributions with likelihood %f. p-value: %f", pValue, testStatistic));
+        }
+
+        return this;
+    }
+
+    @Override
+    public DistributionAssert comesFromDifferentDistributionAs(List<Integer> expected, double pValue) {
+        TwoSampleKSTest test = new TwoSampleKSTest(actual, expected);
+        double testStatistic = test.calculateTestStatistic();
+
+        if(testStatistic >= (1 - pValue)) {
             throw new AssertionError(String.format("Two distributions had different distributions with likelihood %f. p-value: %f", pValue, testStatistic));
         }
 
