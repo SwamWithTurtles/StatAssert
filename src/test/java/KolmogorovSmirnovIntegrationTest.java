@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 
-public class TestTest {
+public class KolmogorovSmirnovIntegrationTest {
     @Test
     public void identicalDistributionsShouldHaveTheSame() {
         AbstractDistributionAssert foo = new DistributionAssert(Arrays.asList(1, 1, 1, 1));
