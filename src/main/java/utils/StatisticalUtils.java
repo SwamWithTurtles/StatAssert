@@ -7,7 +7,7 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.function.Function;
 
-public class StatisticalUtils {
+public abstract class StatisticalUtils {
 
     public static Function<Double, Double> convertToCdf(final List<Integer> actual) {
         return new Function<Double, Double>() {
