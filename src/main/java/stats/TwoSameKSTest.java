@@ -32,7 +32,7 @@ public class TwoSameKSTest {
             supCdfDiff = Math.max(supCdfDiff, Math.abs(actualCdf.apply(i) - expectedCdf.apply(i)));
         }
         if(supCdfDiff == 0) {
-            return 0;
+            return 1;
         }
 
         return new KolmogorovSmirnovTest().approximateP(supCdfDiff, actual.size(), expected.size());
