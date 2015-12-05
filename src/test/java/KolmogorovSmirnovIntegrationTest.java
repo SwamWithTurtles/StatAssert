@@ -39,6 +39,11 @@ public class KolmogorovSmirnovIntegrationTest {
     }
 
     @Test
+    public void canUseStandardAssertJAssertions() {
+        assertThat(new int[]{1, 2, 3}).comesFromSameDistributionAs(new int[]{1, 2, 3}, 0.01).hasSize(3);
+    }
+
+    @Test
     public void wildlyDeviatingDistributionsShouldThrowErrorWhenAssertedToBeSame() {
         try {
             assertThat(new int[]{1, 1, 1, 1}).comesFromSameDistributionAs(new int[]{3, 5, 8, 13, 21}, 0.01);

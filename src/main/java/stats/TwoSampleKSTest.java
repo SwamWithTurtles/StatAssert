@@ -6,7 +6,10 @@ import org.apache.commons.math3.stat.inference.KolmogorovSmirnovTest;
 import java.util.*;
 import java.util.function.Function;
 
-
+/**
+ * Implementation of the Kolmogorov-Smirnov Test
+ * Most of the specifics are handled by the Apache Math3 library
+ */
 public class TwoSampleKSTest {
 
     private static final Integer GRANULARITY = 1000;
@@ -19,6 +22,10 @@ public class TwoSampleKSTest {
         this.expected = asList(expected);
     }
 
+    /**
+     * Compares the actual and expected distribution and returns the p-value returned by the Kolmogorov-Smirnov Test
+     * @return p-value, namely (1 - p), where p is the probability that the distributions are this similar by chance
+     */
     public double calculateTestStatistic() {
 
         Function<Double, Double> actualCdf = new DistributionFormatter(actual).convertToCdf();

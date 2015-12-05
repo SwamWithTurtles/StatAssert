@@ -2,11 +2,11 @@ package Matcher;
 
 import stats.TwoSampleKSTest;
 
-import java.util.Arrays;
-import java.util.List;
 
+/**
+ * Implementation of integer array assertions
+ */
 public class DistributionAssert extends AbstractDistributionAssert {
-
 
     public DistributionAssert(int[] actual) {
         super(actual, DistributionAssert.class);
@@ -30,6 +30,13 @@ public class DistributionAssert extends AbstractDistributionAssert {
         return this;
     }
 
+    /**
+     * Confirm that two arrays come from different distributions
+     *
+     * @param expected The Distribution we wish to compare our list of inputs to
+     * @param pValue The likelihood, below which we assume the distributions are different
+     * @return {@code this} assertion object
+     */
     @Override
     public DistributionAssert comesFromDifferentDistributionAs(int[] expected, double pValue) {
         TwoSampleKSTest test = new TwoSampleKSTest(unwrapIntArray(actual), expected);
