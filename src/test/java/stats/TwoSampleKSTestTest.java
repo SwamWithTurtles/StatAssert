@@ -16,7 +16,7 @@ public class TwoSampleKSTestTest {
 
         TwoSampleKSTest test = new TwoSampleKSTest(array1, array2);
 
-        assertEquals(test.calculateTestStatistic(), 1d, 0.001);
+        assertEquals(test.calculateTestStatistic(), 1, 0.001);
     }
 
     //Test cases below are designed to representative
@@ -29,7 +29,7 @@ public class TwoSampleKSTestTest {
 
         TwoSampleKSTest test = new TwoSampleKSTest(array1, array2);
 
-        assertEquals(test.calculateTestStatistic(), 0.999633d, 0.001);
+        assertEquals(test.calculateTestStatistic(), 0.999633, 0.001);
     }
 
     @Test
@@ -39,7 +39,17 @@ public class TwoSampleKSTestTest {
 
         TwoSampleKSTest test = new TwoSampleKSTest(array1, array2);
 
-        assertEquals(test.calculateTestStatistic(), 0.116310d, 0.001);
+        assertEquals(test.calculateTestStatistic(), 0.116310, 0.001);
+    }
+
+    @Test
+    public void twoSampleKSTestWithLargeArrays() {
+        List<Integer> array1 = Arrays.asList(1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 7, 8, 8, 8, 8, 9, 9, 9, 9, 9);
+        List<Integer> array2 = Arrays.asList(1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9);
+
+        TwoSampleKSTest test = new TwoSampleKSTest(array1, array2);
+
+        assertEquals(test.calculateTestStatistic(), 0.513684, 0.001);
     }
 
 }
